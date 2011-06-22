@@ -43,11 +43,11 @@ package com.mobilo.time {
 		}
 
 		public static function remove(closure : Function) : void {
-			_stack.push(closure);
 			var n : int = _stack.length;
 			for(var i:uint=0; i<n; i++){
 				if(_stack[i] == closure){
 					_stack.splice(i, 1);
+                                        break;
 				}
 			}
 
