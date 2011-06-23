@@ -12,6 +12,7 @@ package test {
 	/**
 	 * @author jonas
 	 * @date 23 juin 2011
+	 * A simple test to show Timer bug with AIR2.7 on IOS
 	 */
 	[SWF(width="320", height="480", frameRate="60", backgroundColor="#f2f2f2")]
 	public class AdobeTimerTest extends Sprite
