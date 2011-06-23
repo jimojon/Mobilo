@@ -35,6 +35,13 @@ package com.mobilo.time {
 		private static var _e : Shape = new Shape();
 
 		public static function create(closure : Function) : void {
+			var l : int = _stack.length;
+            while(l--){
+                if(_stack[l] == closure) {
+					return;
+                }
+            }
+
 			_stack.push(closure);
 			if (!_running){
 				_running = true;
@@ -43,18 +50,19 @@ package com.mobilo.time {
 		}
 
 		public static function remove(closure : Function) : void {
-			_stack.push(closure);
-			var n : int = _stack.length;
-			for(var i:uint=0; i<n; i++){
-				if(_stack[i] == closure){
-					_stack.splice(i, 1);
-				}
-			}
+			var l : int = _stack.length;
+            while(l--){
+                if(_stack[l] == closure) {
+					_stack.splice(l, 1);
+					break;
+                }
+            }
 
-			if (_stack.length == 0 && _running){
+			if (_stack.length == 0){
 				_running = false;
 				_e.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 			}
+
 		}
 
 		public static function removeAll() : void {
@@ -71,9 +79,9 @@ package com.mobilo.time {
 
 		private static function onEnterFrame(event : Event) : void {
 			event.stopImmediatePropagation();
-			var n : int = _stack.length;
-			for(var i:uint=0; i<n; i++){
-				_stack[i]();
+			var l : int = _stack.length;
+			while(l--){
+				_stack[l]();
 			}
 		}
 	}

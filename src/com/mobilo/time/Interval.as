@@ -1,3 +1,26 @@
+/*
+The MIT License
+
+Copyright (c) 2011 Jonas Monnier
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
 package com.mobilo.time {
 	import flash.utils.getTimer;
 
@@ -19,32 +42,6 @@ package com.mobilo.time {
 			return _id;
 		}
 
-		private static function tick() : void {
-			var i : int = 0;
-			var b : Boolean = _stack.length > 0;
-			while (b) {
-				if (getTimer() - _stack[i]["last"] >= _stack[i]["delay"]) {
-					(_stack[i]["closure"] as Function).apply(null, _stack[i]["args"]);
-					_stack[i]["last"] = getTimer();
-					_stack[i]["count"]++;
-					trace(_stack[i]["count"], _stack[i]["repeatCount"]);
-					if(_stack[i]["count"] == _stack[i]["repeatCount"])
-						_stack.splice(i, 1);
-				} else {
-					i++;
-				}
-				b = _stack.length > i;
-			}
-			if (_stack.length == 0) {
-				Tick.remove(tick);
-				_running = false;
-			}
-		}
-
-		public static function get running() : Boolean {
-			return _running;
-		}
-
 		public static function clear(id : int) : Boolean {
 			var l : int = _stack.length ;
 			while (l--) {
@@ -60,6 +57,31 @@ package com.mobilo.time {
 			if (_running) {
 				Tick.remove(tick);
 				_stack.length = 0;
+				_running = false;
+			}
+		}
+
+		public static function get running() : Boolean {
+			return _running;
+		}
+
+		private static function tick() : void {
+			var i : int = 0;
+			var b : Boolean = _stack.length > 0;
+			while (b) {
+				if (getTimer() - _stack[i]["last"] >= _stack[i]["delay"]) {
+					(_stack[i]["closure"] as Function).apply(null, _stack[i]["args"]);
+					_stack[i]["last"] = getTimer();
+					_stack[i]["count"]++;
+					if(_stack[i]["count"] == _stack[i]["repeatCount"])
+						_stack.splice(i, 1);
+				} else {
+					i++;
+				}
+				b = _stack.length > i;
+			}
+			if (_stack.length == 0) {
+				Tick.remove(tick);
 				_running = false;
 			}
 		}

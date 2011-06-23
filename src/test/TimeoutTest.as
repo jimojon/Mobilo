@@ -23,6 +23,8 @@ package test {
 		private var iteration:int = 30;
 		private var delay:int = 100;
 
+//		var o:Object;
+
 		public function TimeoutTest()
 		{
 			stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -44,6 +46,13 @@ package test {
 
 			stage.addEventListener(MouseEvent.CLICK, start);
 			//start(null);
+
+//			o = {};
+//			o.test3 = function(s:String){
+//				var m:String = (getTimer()-start2)+"\n";
+//				message2.appendText(m);
+//			}
+
 		}
 
 		private function start(event : MouseEvent) : void {
@@ -73,12 +82,16 @@ package test {
 //			Timeout.create(test2, 500, "test01 500 - ");
 //			Timeout.create(test2, 100, "test02 100 - ");
 
+			Timeout.clear(3);
+
 			for(i=1; i<=iteration; i++){
 				n = i*delay;
 				Timeout.create(test2, n, "A "+n+" ms delay - ");
 			}
 
-//			Timeout.clear(10);
+			Timeout.clear(3);
+			Timeout.clear(3);
+			Timeout.clear(3);
 		}
 
 		public function test1(s:String):void {

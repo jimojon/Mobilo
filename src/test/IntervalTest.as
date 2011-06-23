@@ -30,6 +30,8 @@ package test {
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
 
+
+
 			message1 = new TextField();
 			message1.width = 160;
 			message1.height = 480;
