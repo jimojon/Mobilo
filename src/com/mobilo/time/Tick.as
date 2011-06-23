@@ -58,7 +58,7 @@ package com.mobilo.time {
 				}
 			}
 
-			if (_stack.length == 0) {
+			if (_stack.length == 0 && _running) {
 				_running = false;
 				_e.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 			}
