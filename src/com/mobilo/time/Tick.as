@@ -58,14 +58,6 @@ package com.mobilo.time {
 				}
 			}
 
-			var n : int = _stack.length;
-			for (var i : uint = 0; i < n; i++) {
-				if (_stack[i] == closure) {
-					_stack.splice(i, 1);
-					break;
-				}
-			}
-
 			if (_stack.length == 0) {
 				_running = false;
 				_e.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
