@@ -82,16 +82,13 @@ package test {
 //			Timeout.create(test2, 500, "test01 500 - ");
 //			Timeout.create(test2, 100, "test02 100 - ");
 
-			Timeout.clear(3);
 
 			for(i=1; i<=iteration; i++){
 				n = i*delay;
 				Timeout.create(test2, n, "A "+n+" ms delay - ");
 			}
 
-			Timeout.clear(3);
-			Timeout.clear(3);
-			Timeout.clear(3);
+//			Timeout.clear(3);
 		}
 
 		public function test1(s:String):void {
