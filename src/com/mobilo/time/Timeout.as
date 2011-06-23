@@ -20,7 +20,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-*/
+ */
 package com.mobilo.time {
 	import flash.utils.getTimer;
 
@@ -35,7 +35,7 @@ package com.mobilo.time {
 		public static function create(closure : Function, delay : Number, ...args : Array) : int {
 			_id++;
 			_stack.push({closure:closure, delay:delay, args:args, start:getTimer(), id:_id});
-			if (!_running){
+			if (!_running) {
 				_running = true;
 				Tick.create(tick);
 			}

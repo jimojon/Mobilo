@@ -20,30 +20,30 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-*/
+ */
 package com.mobilo.time {
 	import flash.display.Shape;
 	import flash.events.Event;
+
 	/**
 	 * @author jonas
 	 * @date 22 juin 2011
 	 */
-	public class Tick
-	{
+	public class Tick {
 		private static var _stack : Vector.<Function> = new Vector.<Function>();
 		private static var _running : Boolean = false;
 		private static var _e : Shape = new Shape();
 
 		public static function create(closure : Function) : void {
 			var l : int = _stack.length;
-            while(l--){
-                if(_stack[l] == closure) {
+			while (l--) {
+				if (_stack[l] == closure) {
 					return;
-                }
-            }
+				}
+			}
 
 			_stack.push(closure);
-			if (!_running){
+			if (!_running) {
 				_running = true;
 				_e.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 			}
@@ -51,18 +51,25 @@ package com.mobilo.time {
 
 		public static function remove(closure : Function) : void {
 			var l : int = _stack.length;
-            while(l--){
-                if(_stack[l] == closure) {
+			while (l--) {
+				if (_stack[l] == closure) {
 					_stack.splice(l, 1);
 					break;
-                }
-            }
+				}
+			}
 
-			if (_stack.length == 0){
+			var n : int = _stack.length;
+			for (var i : uint = 0; i < n; i++) {
+				if (_stack[i] == closure) {
+					_stack.splice(i, 1);
+					break;
+				}
+			}
+
+			if (_stack.length == 0) {
 				_running = false;
 				_e.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 			}
-
 		}
 
 		public static function removeAll() : void {
@@ -80,7 +87,7 @@ package com.mobilo.time {
 		private static function onEnterFrame(event : Event) : void {
 			event.stopImmediatePropagation();
 			var l : int = _stack.length;
-			while(l--){
+			while (l--) {
 				_stack[l]();
 			}
 		}
