@@ -23,7 +23,7 @@ package test {
 		private var start2:int;
 
 		public var iteration:int = 30;
-		public var delay:int = 20000;
+		public var delay:int = 100;
 
 		public function IntervalTest()
 		{
