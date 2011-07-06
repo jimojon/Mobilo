@@ -8,6 +8,7 @@ package bench {
 	 * @from Grant Skinner PerformanceTest
 	 * @date 4 juil. 2011
 	 */
+	[SWF(width="320", height="480", frameRate="60", backgroundColor="#f2f2f2")]
 	final public class Loops extends BenchView {
 		private var loops : uint = 1000000;
 		private var vec : Vector.<Boolean> = new Vector.<Boolean>(loops);
@@ -25,6 +26,7 @@ package bench {
 			Bench.push(forEachInUntyped, 'forEachInUntyped', 5);
 			Bench.push(forEachInPosttyped, 'forEachInPosttyped', 5);
 			Bench.push(vecForEach, 'vecForEach', 5);
+			Bench.push(forIncrement, 'forIncrement', 5);
 
 			Bench.run();
 		}

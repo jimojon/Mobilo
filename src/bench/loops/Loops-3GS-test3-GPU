@@ -1,0 +1,119 @@
+forIncrement
+------------------------------------------------------------
+time=1 ms [memory total=5.705 private=8.155 free=0.246]
+time=0 ms [memory total=5.689 private=8.159 free=0.262]
+time=0 ms [memory total=5.682 private=8.159 free=0.270]
+time=0 ms [memory total=5.682 private=8.139 free=0.270]
+time=0 ms [memory total=5.682 private=8.139 free=0.270]
+------------------------------------------------------------
+time=0 max=1 min=0 deviation=Infinity
+
+forDecrement
+------------------------------------------------------------
+time=0 ms [memory total=5.686 private=8.139 free=0.266]
+time=0 ms [memory total=5.682 private=8.139 free=0.270]
+time=0 ms [memory total=5.682 private=8.139 free=0.270]
+time=0 ms [memory total=5.678 private=8.139 free=0.274]
+time=0 ms [memory total=5.678 private=8.139 free=0.274]
+------------------------------------------------------------
+time=0 max=0 min=0 deviation=NaN
+
+whileIncrement
+------------------------------------------------------------
+time=0 ms [memory total=5.682 private=8.139 free=0.270]
+time=0 ms [memory total=5.678 private=8.139 free=0.274]
+time=0 ms [memory total=5.678 private=8.139 free=0.274]
+time=0 ms [memory total=5.670 private=8.139 free=0.281]
+time=0 ms [memory total=5.639 private=8.139 free=0.313]
+------------------------------------------------------------
+time=0 max=0 min=0 deviation=NaN
+
+whileDecrement
+------------------------------------------------------------
+time=291 ms [memory total=5.643 private=8.139 free=0.309]
+time=289 ms [memory total=5.639 private=8.139 free=0.313]
+time=291 ms [memory total=5.627 private=8.139 free=0.324]
+time=290 ms [memory total=5.568 private=8.139 free=0.383]
+time=291 ms [memory total=5.568 private=8.139 free=0.383]
+------------------------------------------------------------
+time=290 max=291 min=289 deviation=0.007
+
+doWhileIncrement
+------------------------------------------------------------
+time=83 ms [memory total=5.572 private=8.139 free=0.379]
+time=83 ms [memory total=5.568 private=8.139 free=0.383]
+time=83 ms [memory total=5.568 private=8.139 free=0.383]
+time=82 ms [memory total=5.564 private=8.139 free=0.387]
+time=83 ms [memory total=5.564 private=8.147 free=0.387]
+------------------------------------------------------------
+time=83 max=83 min=82 deviation=0.012
+
+doWhileDecrement
+------------------------------------------------------------
+time=268 ms [memory total=5.568 private=8.147 free=0.383]
+time=267 ms [memory total=5.564 private=8.147 free=0.387]
+time=268 ms [memory total=5.560 private=8.147 free=0.391]
+time=267 ms [memory total=5.564 private=8.147 free=0.387]
+time=267 ms [memory total=5.564 private=8.147 free=0.387]
+------------------------------------------------------------
+time=267 max=268 min=267 deviation=0.004
+
+forIn
+------------------------------------------------------------
+time=397 ms [memory total=5.568 private=8.147 free=0.383]
+time=397 ms [memory total=5.564 private=8.147 free=0.387]
+time=396 ms [memory total=5.564 private=8.147 free=0.387]
+time=396 ms [memory total=5.564 private=8.147 free=0.387]
+time=397 ms [memory total=5.564 private=7.862 free=0.387]
+------------------------------------------------------------
+time=397 max=397 min=396 deviation=0.003
+
+forEachIn
+------------------------------------------------------------
+time=398 ms [memory total=5.568 private=7.862 free=0.383]
+time=399 ms [memory total=5.564 private=7.862 free=0.387]
+time=397 ms [memory total=5.564 private=7.862 free=0.387]
+time=398 ms [memory total=5.564 private=7.862 free=0.387]
+time=398 ms [memory total=5.564 private=7.862 free=0.387]
+------------------------------------------------------------
+time=398 max=399 min=397 deviation=0.005
+
+forEachInUntyped
+------------------------------------------------------------
+time=398 ms [memory total=5.568 private=7.862 free=0.383]
+time=402 ms [memory total=5.564 private=7.862 free=0.387]
+time=398 ms [memory total=5.564 private=7.862 free=0.387]
+time=405 ms [memory total=5.564 private=7.862 free=0.387]
+time=398 ms [memory total=5.564 private=7.862 free=0.387]
+------------------------------------------------------------
+time=400 max=405 min=398 deviation=0.018
+
+forEachInPosttyped
+------------------------------------------------------------
+time=439 ms [memory total=5.576 private=7.862 free=0.375]
+time=436 ms [memory total=5.572 private=7.862 free=0.379]
+time=437 ms [memory total=5.572 private=7.862 free=0.379]
+time=472 ms [memory total=5.572 private=7.862 free=0.379]
+time=438 ms [memory total=5.572 private=7.870 free=0.379]
+------------------------------------------------------------
+time=444 max=472 min=436 deviation=0.081
+
+vecForEach
+------------------------------------------------------------
+time=2398 ms [memory total=5.639 private=7.870 free=0.313]
+time=2629 ms [memory total=5.635 private=7.862 free=0.317]
+time=2395 ms [memory total=5.635 private=7.862 free=0.317]
+time=2513 ms [memory total=5.635 private=7.862 free=0.317]
+time=2395 ms [memory total=5.635 private=7.862 free=0.317]
+------------------------------------------------------------
+time=2466 max=2629 min=2395 deviation=0.095
+
+forIncrement
+------------------------------------------------------------
+time=0 ms [memory total=5.635 private=7.862 free=0.317]
+time=0 ms [memory total=5.627 private=7.862 free=0.324]
+time=0 ms [memory total=5.627 private=7.862 free=0.324]
+time=0 ms [memory total=5.627 private=7.862 free=0.324]
+time=0 ms [memory total=5.627 private=7.862 free=0.324]
+------------------------------------------------------------
+time=0 max=0 min=0 deviation=NaN

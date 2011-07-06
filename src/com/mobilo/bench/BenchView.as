@@ -1,6 +1,4 @@
 package com.mobilo.bench {
-	import flash.desktop.Clipboard;
-	import flash.desktop.ClipboardFormats;
 	import flash.desktop.NativeApplication;
 	import flash.desktop.SystemIdleMode;
 	import flash.display.Sprite;
@@ -11,6 +9,7 @@ package com.mobilo.bench {
 	 * @author jonas
 	 * @date 4 juil. 2011
 	 */
+	[SWF(width="320", height="480", frameRate="60", backgroundColor="#f2f2f2")]
 	public class BenchView extends Sprite {
 
 		private var textfield:TextField;
@@ -22,16 +21,17 @@ package com.mobilo.bench {
 
 		private function output(result : String) : void {
 			textfield = new TextField();
-			textfield.selectable = true;
+			addChild(textfield);
+			textfield.text = result;
 			textfield.type = TextFieldType.INPUT;
+			textfield.multiline = true;
+			textfield.wordWrap = true;
 			textfield.width = stage.stageWidth;
 			textfield.height = stage.stageHeight;
-			textfield.text = result;
 
-			addChild(textfield);
-
-			Clipboard.generalClipboard.setData(ClipboardFormats.TEXT_FORMAT, textfield.text);
+			// Any way to put text into IOS clipboard ?
 		}
-
 	}
 }
+
+

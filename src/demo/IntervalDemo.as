@@ -1,4 +1,4 @@
-package test {
+package demo {
 	import com.mobilo.time.Interval;
 
 	import flash.display.Sprite;
@@ -15,7 +15,7 @@ package test {
 	 * @date 16 juin 2011
 	 */
 	[SWF(width="320", height="480", frameRate="60", backgroundColor="#f2f2f2")]
-	public class IntervalTest extends Sprite
+	public class IntervalDemo extends Sprite
 	{
 		private var message1:TextField;
 		private var message2:TextField;
@@ -25,7 +25,7 @@ package test {
 		public var iteration:int = 30;
 		public var delay:int = 100;
 
-		public function IntervalTest()
+		public function IntervalDemo()
 		{
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;

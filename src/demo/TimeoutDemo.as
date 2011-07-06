@@ -1,4 +1,4 @@
-package test {
+package demo {
 	import com.mobilo.time.Timeout;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
@@ -14,7 +14,7 @@ package test {
 	 * @date 16 juin 2011
 	 */
 	[SWF(width="320", height="480", frameRate="60", backgroundColor="#f2f2f2")]
-	public class TimeoutTest extends Sprite
+	public class TimeoutDemo extends Sprite
 	{
 		private var message1:TextField;
 		private var message2:TextField;
@@ -25,7 +25,7 @@ package test {
 
 //		var o:Object;
 
-		public function TimeoutTest()
+		public function TimeoutDemo()
 		{
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;

@@ -1,4 +1,4 @@
-package test {
+package demo {
 	import flash.display.Shape;
 	import com.mobilo.time.Tick;
 
@@ -15,7 +15,7 @@ package test {
 	 * @date 22 juin 2011
 	 */
 	[SWF(width="320", height="480", frameRate="60", backgroundColor="#f2f2f2")]
-	dynamic public class TickTest extends Sprite {
+	dynamic public class TickDemo extends Sprite {
 
 		private var message1:TextField;
 		private var message2:TextField;
@@ -30,7 +30,7 @@ package test {
 		private var _sh3:Shape = new Shape();
 		private var _sh4:Shape = new Shape();
 
-		public function TickTest()
+		public function TickDemo()
 		{
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
