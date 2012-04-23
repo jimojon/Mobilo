@@ -22,19 +22,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
  */
 package com.mobilo.time {
+	import flash.utils.Dictionary;
 	import flash.utils.getTimer;
 
 	/**
-	 * @author @jonasmonnier @Seraf_NSS
+	 * @author @jonasmonnier @Seraf_NSS @mirezko
 	 */
 	public class Timeout {
-		private static var _stack : Vector.<Object> = new Vector.<Object>();
+		private static var _stack : Dictionary = new Dictionary();
 		private static var _running : Boolean = false;
 		private static var _id : int = -1;
 
 		public static function create(closure : Function, delay : Number, ...args : Array) : int {
 			_id++;
-			_stack.push({closure:closure, delay:delay, args:args, start:getTimer(), id:_id});
+			_stack[_id] = {closure:closure, delay:delay, args:args, start:getTimer(), id:_id};
 			if (!_running) {
 				_running = true;
 				Tick.create(tick);
@@ -43,20 +44,24 @@ package com.mobilo.time {
 		}
 
 		public static function clear(id : int) : Boolean {
-			var l : int = _stack.length ;
-			while (l--) {
-				if ( _stack[l]["id"] == id ) {
-					_stack.splice(l, 1);
-					return true;
-				}
+			if(_stack.hasOwnProperty(id))
+			{
+				delete _stack[id];
+				return true;
 			}
-			return false;
+			else
+			{
+				return false;
+			}
 		}
 
 		public static function clearAll() : void {
 			if (_running) {
 				Tick.remove(tick);
-				_stack.length = 0;
+				for (var key:Object in _stack)
+				{
+					delete _stack[key];
+				}
 				_running = false;
 			}
 		}
@@ -66,18 +71,19 @@ package com.mobilo.time {
 		}
 
 		private static function tick() : void {
-			var i : int = 0;
-			var b : Boolean = _stack.length > 0;
-			while (b) {
-				if (getTimer() - _stack[i]["start"] >= _stack[i]["delay"]) {
-					(_stack[i]["closure"] as Function).apply(null, _stack[i]["args"]);
-					_stack.splice(i, 1);
-				} else {
-					i++;
+			var length : int = 0;
+			var handler:Object;
+			for (var i:Object in _stack)
+			{
+				handler = _stack[i];
+				if (getTimer() - handler["start"] >= handler["delay"]) {
+					(handler["closure"] as Function).apply(null, handler["args"]);
+					if (_stack.hasOwnProperty(i))
+						delete _stack[i];
 				}
-				b = _stack.length > i;
+				length++;
 			}
-			if (_stack.length == 0) {
+			if (length == 0) {
 				Tick.remove(tick);
 				_running = false;
 			}
