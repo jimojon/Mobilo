@@ -62,7 +62,8 @@ package test {
 		}
 		
 		private function _update():void {
-			_label.text = "Running "+Interval.running + " ("+Interval.length+" intervals)";
+			var n:uint = Interval.length;
+			_label.text = "Running "+n+" interval"+(n > 0 ? "s" : "");
 			
 			var bt:Button;
 			var ny:Number = 50;
@@ -83,7 +84,6 @@ package test {
 		
 		private function onInterval():void {
 			_ping.text = String(_i++);
-			_label.text = "Running "+Interval.running + " ("+Interval.length+" intervals)";
 		}
 	}
 }
