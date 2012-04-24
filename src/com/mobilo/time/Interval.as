@@ -64,6 +64,10 @@ package com.mobilo.time {
 		public static function get running() : Boolean {
 			return _running;
 		}
+		
+		public static function get length():uint {
+			return _stack.length;
+		}
 
 		private static function tick() : void {
 			var i : int = 0;
@@ -81,8 +85,8 @@ package com.mobilo.time {
 				b = _stack.length > i;
 			}
 			if (_stack.length == 0) {
-				Tick.remove(tick);
 				_running = false;
+				Tick.remove(tick);
 			}
 		}
 	}

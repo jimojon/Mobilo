@@ -64,6 +64,10 @@ package com.mobilo.time {
 		public static function get running() : Boolean {
 			return _running;
 		}
+		
+		public static function get length():uint {
+			return _stack.length;
+		}
 
 		private static function tick() : void {
 			var i : int = 0;
